@@ -1,0 +1,182 @@
+/**
+ * LinguaLink360 Base Styles
+ * All styles strictly scoped under .ll-root to isolate from Laravel host stylesheet.
+ */
+
+/* Box-sizing and inheritance */
+.ll-root,
+.ll-root *,
+.ll-root *::before,
+.ll-root *::after {
+  box-sizing: border-box;
+}
+
+/* Base Body Reset scoped to .ll-root */
+body.ll-root,
+.ll-root {
+  margin: 0;
+  padding: 0;
+  background-color: var(--ll-color-bg);
+  color: var(--ll-color-text-main);
+  font-family: var(--ll-font-family-base);
+  font-size: var(--ll-font-size-base);
+  line-height: var(--ll-line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Prevent horizontal scrollbars across all screen widths (360px to 2560px+) without breaking position: sticky */
+  overflow-x: clip;
+}
+
+/*
+ * Element resets use :where(.ll-root) so they carry ZERO specificity: any single
+ * ll- class rule (e.g. .ll-field__control) always wins, regardless of load order.
+ * Do not add ".ll-root element" selectors here without :where().
+ */
+:where(.ll-root) h1,
+:where(.ll-root) h2,
+:where(.ll-root) h3,
+:where(.ll-root) h4,
+:where(.ll-root) h5,
+:where(.ll-root) h6,
+:where(.ll-root) p,
+:where(.ll-root) ul,
+:where(.ll-root) ol,
+:where(.ll-root) figure {
+  margin: 0;
+  padding: 0;
+}
+
+:where(.ll-root) ul,
+:where(.ll-root) ol {
+  list-style: none;
+}
+
+:where(.ll-root) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(.ll-root) img,
+:where(.ll-root) svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:where(.ll-root) button,
+:where(.ll-root) input,
+:where(.ll-root) select,
+:where(.ll-root) textarea {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+:where(.ll-root) button {
+  cursor: pointer;
+}
+
+/* High-contrast accessible focus visible indicator */
+:where(.ll-root) :focus-visible {
+  outline: 2px solid var(--ll-color-brand-primary-dark);
+  outline-offset: 3px;
+  border-radius: var(--ll-radius-sm);
+}
+
+/*
+ * In-page navigation fallback: plain hash links (including arriving from another page
+ * at index.html#pricing) scroll smoothly and land below the sticky header.
+ * main.js adds .ll-scrolling while it drives the scroll itself, to avoid double easing.
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+html.ll-scrolling {
+  scroll-behavior: auto;
+}
+
+:where(.ll-root) main section[id] {
+  scroll-margin-top: calc(var(--ll-header-height) + 16px);
+}
+
+/* Programmatic focus on scroll targets should not show a ring */
+:where(.ll-root) [tabindex="-1"]:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Accessible Skip Navigation Link */
+.ll-skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--ll-container-padding);
+  z-index: 10000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--ll-touch-target-min);
+  padding: var(--ll-space-xs) var(--ll-space-md);
+  background-color: var(--ll-color-brand-primary-dark);
+  color: var(--ll-color-text-inverse) !important;
+  font-weight: var(--ll-font-weight-semibold);
+  font-size: var(--ll-font-size-sm);
+  border-radius: var(--ll-radius-md);
+  box-shadow: var(--ll-shadow-lg);
+  text-decoration: none;
+  transition: top var(--ll-transition-fast);
+}
+
+.ll-skip-link:focus,
+.ll-skip-link:focus-visible {
+  top: 16px;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Structural Layout: Container & Sections */
+.ll-container {
+  width: 100%;
+  max-width: var(--ll-container-max);
+  margin-inline: auto;
+  padding-inline: var(--ll-container-padding);
+  box-sizing: border-box;
+}
+
+.ll-section {
+  width: 100%;
+  padding-block: var(--ll-section-padding-y);
+}
+
+/* Main landmark stretches to push footer to bottom on short pages */
+.ll-main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Screen reader only utility class */
+.ll-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

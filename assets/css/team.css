@@ -1,0 +1,470 @@
+/**
+ * LinguaLink360 - Team Page Styles
+ * Loaded only by team.html. All classes prefixed with ll-.
+ * The final CTA band is shared and lives in components.css.
+ */
+
+/* ==========================================================================
+   1. SHARED TEAM PIECES
+   ========================================================================== */
+.ll-team-section {
+  padding-block: clamp(40px, 5vw, 72px);
+  border-bottom: 1px solid var(--ll-color-border-subtle);
+}
+
+.ll-team-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ll-space-xs);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
+}
+
+.ll-team-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.35rem + 1.8vw, 2.75rem);
+  font-weight: var(--ll-font-weight-extrabold);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--ll-color-text-main);
+  text-wrap: balance;
+}
+
+.ll-team-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  color: var(--ll-color-brand-primary-dark);
+  background-color: var(--ll-color-brand-primary-light);
+  border: 1px solid rgba(33, 127, 247, 0.18);
+  border-radius: var(--ll-radius-md);
+}
+
+.ll-team-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==========================================================================
+   2. PAGE HERO + MISSION CARD
+   ========================================================================== */
+.ll-team-hero {
+  padding-block: clamp(40px, 5vw, 72px);
+  background:
+    radial-gradient(ellipse 55% 70% at 0% 0%, rgba(33, 127, 247, 0.1), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 100% 100%, rgba(33, 127, 247, 0.08), transparent 70%),
+    var(--ll-color-brand-primary-subtle);
+  border-bottom: 1px solid var(--ll-color-border-subtle);
+  overflow: hidden;
+}
+
+.ll-team-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  min-width: 0;
+}
+
+.ll-team-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ll-space-sm);
+  min-width: 0;
+}
+
+.ll-team-hero__title {
+  margin: 0;
+  font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3.25rem);
+  font-weight: var(--ll-font-weight-extrabold);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ll-color-text-main);
+  text-wrap: balance;
+}
+
+.ll-team-hero__lead {
+  margin: 0;
+  max-width: 560px;
+  font-size: var(--ll-font-size-base);
+  line-height: var(--ll-line-height-normal);
+  color: var(--ll-color-text-muted);
+}
+
+.ll-team-hero__visual {
+  min-width: 0;
+}
+
+.ll-mission {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+  padding: 0 14px 14px 0;
+  box-sizing: border-box;
+}
+
+/* Decorative layered shapes behind the card */
+.ll-mission__shape {
+  position: absolute;
+  border-radius: var(--ll-radius-xl);
+}
+
+.ll-mission__shape--back {
+  inset: 14px 0 0 14px;
+  background-color: rgba(33, 127, 247, 0.14);
+}
+
+.ll-mission__shape--mid {
+  inset: 7px 7px 7px 7px;
+  background: linear-gradient(135deg, rgba(33, 127, 247, 0.3), rgba(21, 102, 214, 0.12));
+}
+
+.ll-mission__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: clamp(18px, 2.4vw, 28px);
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid var(--ll-color-border);
+  border-radius: var(--ll-radius-xl);
+  box-shadow: 0 20px 40px -16px rgba(15, 23, 42, 0.25);
+}
+
+.ll-mission__title {
+  margin: 0;
+  font-size: var(--ll-font-size-lg);
+  font-weight: var(--ll-font-weight-extrabold);
+  letter-spacing: -0.02em;
+  color: var(--ll-color-text-main);
+}
+
+.ll-mission__text {
+  margin: 0;
+  font-size: var(--ll-font-size-md);
+  line-height: var(--ll-line-height-normal);
+  color: var(--ll-color-text-muted);
+}
+
+/* ==========================================================================
+   3. MEMBER CARD (reusable) + LEADERSHIP / TEAM GRIDS
+   ========================================================================== */
+.ll-team-leadership {
+  background-color: #ffffff;
+}
+
+.ll-team-leadership__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+/* Future grid for more members: repeat one .ll-member-card per person */
+.ll-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+.ll-member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(14px, 2vw, 24px);
+  padding: clamp(16px, 2vw, 26px);
+  box-sizing: border-box;
+  min-width: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid var(--ll-color-border);
+  border-radius: var(--ll-radius-lg);
+  box-shadow: var(--ll-shadow-md);
+}
+
+/* Fixed 120px circle: initials today, an <img class="ll-member-card__photo"> later */
+.ll-member-card__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--ll-color-brand-primary-dark), #0f52b0);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(21, 102, 214, 0.14);
+}
+
+.ll-member-card__initials {
+  font-size: 2.25rem;
+  font-weight: var(--ll-font-weight-extrabold);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.ll-member-card__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ll-member-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ll-member-card__name {
+  margin: 0;
+  font-size: var(--ll-font-size-lg);
+  font-weight: var(--ll-font-weight-extrabold);
+  line-height: var(--ll-line-height-snug);
+  letter-spacing: -0.02em;
+  color: var(--ll-color-text-main);
+}
+
+.ll-member-card__role {
+  display: inline-flex;
+  padding: 4px 10px;
+  font-size: var(--ll-font-size-xs);
+  font-weight: var(--ll-font-weight-bold);
+  line-height: 1.2;
+  color: var(--ll-color-brand-primary-dark);
+  background-color: var(--ll-color-brand-primary-light);
+  border: 1px solid rgba(33, 127, 247, 0.2);
+  border-radius: var(--ll-radius-pill);
+}
+
+.ll-member-card__bio {
+  margin: 0;
+  font-size: var(--ll-font-size-sm);
+  line-height: var(--ll-line-height-normal);
+  color: var(--ll-color-text-muted);
+}
+
+.ll-member-card__links {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.ll-member-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ll-touch-target-min);
+  height: var(--ll-touch-target-min);
+  color: var(--ll-color-brand-primary-dark);
+  background-color: #ffffff;
+  border: 1px solid var(--ll-color-border);
+  border-radius: 50%;
+  transition: background-color var(--ll-transition-fast), color var(--ll-transition-fast), border-color var(--ll-transition-fast);
+}
+
+.ll-member-card__link:hover {
+  color: #ffffff;
+  background-color: var(--ll-color-brand-primary-dark);
+  border-color: var(--ll-color-brand-primary-dark);
+}
+
+.ll-member-card__link:focus-visible {
+  outline: 2px solid var(--ll-color-brand-primary-dark);
+  outline-offset: 2px;
+}
+
+.ll-member-card__link svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==========================================================================
+   4. REACH US DIRECTLY
+   ========================================================================== */
+.ll-team-contact {
+  background:
+    radial-gradient(ellipse 45% 70% at 100% 0%, rgba(33, 127, 247, 0.08), transparent 70%),
+    var(--ll-color-surface-subtle);
+}
+
+.ll-team-contact__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(16px, 3vw, 48px);
+  min-width: 0;
+}
+
+.ll-team-contact__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ll-space-xs);
+}
+
+.ll-contact-card {
+  min-width: 0;
+  padding: clamp(6px, 1vw, 10px);
+  background-color: #ffffff;
+  border: 1px solid var(--ll-color-border);
+  border-radius: var(--ll-radius-lg);
+  box-shadow: var(--ll-shadow-md);
+}
+
+.ll-contact-card__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ll-contact-card__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px clamp(10px, 1.4vw, 16px);
+}
+
+.ll-contact-card__row + .ll-contact-card__row {
+  border-top: 1px solid var(--ll-color-border-subtle);
+}
+
+.ll-contact-card__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 180px;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ll-contact-card__label {
+  font-size: var(--ll-font-size-xs);
+  font-weight: var(--ll-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ll-color-text-subtle);
+}
+
+.ll-contact-card__value {
+  font-size: var(--ll-font-size-base);
+  font-weight: var(--ll-font-weight-semibold);
+  color: var(--ll-color-text-main);
+  overflow-wrap: anywhere;
+}
+
+a.ll-contact-card__value:hover {
+  color: var(--ll-color-brand-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ==========================================================================
+   5. PRINCIPLES STRIP
+   ========================================================================== */
+.ll-team-principles {
+  padding-block: clamp(40px, 5vw, 72px);
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--ll-color-border-subtle);
+}
+
+.ll-team-principles__strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--ll-color-brand-primary-subtle);
+  border: 1px solid rgba(33, 127, 247, 0.16);
+  border-radius: var(--ll-radius-lg);
+  overflow: hidden;
+}
+
+.ll-principle {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: clamp(14px, 1.8vw, 22px);
+  min-width: 0;
+}
+
+.ll-principle + .ll-principle {
+  border-top: 1px solid rgba(33, 127, 247, 0.16);
+}
+
+.ll-principle__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ll-principle__title {
+  margin: 0;
+  font-size: var(--ll-font-size-base);
+  font-weight: var(--ll-font-weight-bold);
+  color: var(--ll-color-text-main);
+}
+
+.ll-principle__desc {
+  margin: 0;
+  font-size: var(--ll-font-size-sm);
+  line-height: var(--ll-line-height-normal);
+  color: var(--ll-color-text-muted);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE
+   ========================================================================== */
+@media (min-width: 520px) {
+  /* Avatar on the left, content on the right */
+  .ll-member-card {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .ll-team-principles__strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ll-principle + .ll-principle {
+    border-top: 0;
+    border-left: 1px solid rgba(33, 127, 247, 0.16);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ll-team-hero__inner {
+    grid-template-columns: 1.05fr 1fr;
+  }
+
+  .ll-mission {
+    margin-inline: 0 auto;
+  }
+
+  .ll-team-leadership__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ll-team-contact__layout {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}

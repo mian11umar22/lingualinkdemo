@@ -1,0 +1,497 @@
+/**
+ * LinguaLink360 - About Page Styles
+ * Loaded only by about.html. All classes prefixed with ll-.
+ * The final CTA band is shared and lives in components.css.
+ */
+
+/* ==========================================================================
+   1. SHARED ABOUT PIECES (section spacing, headings, cards, icons)
+   ========================================================================== */
+.ll-about-section {
+  padding-block: clamp(40px, 5vw, 72px);
+  border-bottom: 1px solid var(--ll-color-border-subtle);
+}
+
+.ll-about-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ll-space-xs);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
+  text-align: center;
+}
+
+.ll-about-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.35rem + 1.8vw, 2.75rem);
+  font-weight: var(--ll-font-weight-extrabold);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--ll-color-text-main);
+  text-wrap: balance;
+}
+
+.ll-about-text {
+  margin: 0;
+  font-size: var(--ll-font-size-base);
+  line-height: var(--ll-line-height-normal);
+  color: var(--ll-color-text-muted);
+}
+
+.ll-about-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  color: var(--ll-color-brand-primary-dark);
+  background-color: var(--ll-color-brand-primary-light);
+  border: 1px solid rgba(33, 127, 247, 0.18);
+  border-radius: var(--ll-radius-md);
+}
+
+.ll-about-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ll-about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: clamp(16px, 1.8vw, 22px);
+  box-sizing: border-box;
+  min-width: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid var(--ll-color-border);
+  border-radius: var(--ll-radius-lg);
+  box-shadow: var(--ll-shadow-md);
+}
+
+.ll-about-card--row {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.ll-about-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ll-about-card__title {
+  margin: 0;
+  font-size: var(--ll-font-size-base);
+  font-weight: var(--ll-font-weight-bold);
+  line-height: var(--ll-line-height-snug);
+  letter-spacing: -0.01em;
+  color: var(--ll-color-text-main);
+}
+
+.ll-about-card__text {
+  margin: 0;
+  font-size: var(--ll-font-size-sm);
+  line-height: var(--ll-line-height-normal);
+  color: var(--ll-color-text-muted);
+}
+
+/* ==========================================================================
+   2. PAGE HERO
+   ========================================================================== */
+.ll-about-hero {
+  padding-block: clamp(40px, 5vw, 72px);
+  background:
+    radial-gradient(ellipse 55% 70% at 0% 0%, rgba(33, 127, 247, 0.1), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 100% 100%, rgba(33, 127, 247, 0.08), transparent 70%),
+    var(--ll-color-brand-primary-subtle);
+  border-bottom: 1px solid var(--ll-color-border-subtle);
+  overflow: hidden;
+}
+
+.ll-about-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  min-width: 0;
+}
+
+.ll-about-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ll-space-sm);
+  min-width: 0;
+}
+
+.ll-about-hero__title {
+  margin: 0;
+  font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3.25rem);
+  font-weight: var(--ll-font-weight-extrabold);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ll-color-text-main);
+  text-wrap: balance;
+}
+
+.ll-about-hero__lead {
+  margin: 0;
+  max-width: 580px;
+  font-size: var(--ll-font-size-base);
+  line-height: var(--ll-line-height-normal);
+  color: var(--ll-color-text-muted);
+}
+
+.ll-about-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ll-space-xs);
+  margin-top: var(--ll-space-2xs);
+}
+
+.ll-about-hero__visual {
+  min-width: 0;
+}
+
+/* 2.1 Mockup collage: cards overlap through negative margins, in normal flow */
+.ll-collage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin-inline: auto;
+  padding-block: 8px;
+}
+
+.ll-collage::before {
+  content: "";
+  position: absolute;
+  inset: 0 -4% 0 -4%;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(33, 127, 247, 0.22), transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(33, 127, 247, 0.14), transparent 55%);
+  border-radius: var(--ll-radius-xl);
+  z-index: 0;
+}
+
+.ll-collage__card {
+  position: relative;
+  box-sizing: border-box;
+  padding: 14px;
+  background-color: #ffffff;
+  border: 1px solid var(--ll-color-border);
+  border-radius: var(--ll-radius-lg);
+  box-shadow: 0 18px 36px -14px rgba(15, 23, 42, 0.22);
+}
+
+.ll-collage__card--profile {
+  z-index: 1;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 84%;
+}
+
+.ll-collage__card--note {
+  z-index: 2;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 88%;
+  margin-top: -10px;
+}
+
+.ll-collage__card--chart {
+  z-index: 3;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 62%;
+  margin-top: -14px;
+}
+
+.ll-collage__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: var(--ll-font-weight-bold);
+  color: #ffffff;
+  background-color: var(--ll-color-brand-primary-dark);
+  border-radius: 50%;
+}
+
+.ll-collage__profile-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ll-collage__name {
+  font-size: 12.5px;
+  font-weight: var(--ll-font-weight-bold);
+  color: var(--ll-color-text-main);
+}
+
+.ll-collage__meta {
+  font-size: 11px;
+  color: var(--ll-color-text-subtle);
+}
+
+.ll-collage__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ll-collage__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ll-collage__line {
+  display: block;
+  height: 7px;
+  background-color: var(--ll-color-border);
+  border-radius: 4px;
+}
+
+.ll-collage__line--full { width: 100%; }
+.ll-collage__line--long { width: 88%; }
+.ll-collage__line--mid { width: 56%; }
+
+.ll-collage__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 56px;
+  border-bottom: 1px solid var(--ll-color-border);
+}
+
+.ll-collage__bar {
+  flex: 1;
+  background-color: #cbd5e1;
+  border-radius: 3px 3px 0 0;
+}
+
+.ll-collage__bar--active {
+  background-color: var(--ll-color-brand-primary-dark);
+}
+
+.ll-collage__bar--h1 { height: 32%; }
+.ll-collage__bar--h2 { height: 46%; }
+.ll-collage__bar--h3 { height: 58%; }
+.ll-collage__bar--h4 { height: 74%; }
+.ll-collage__bar--h5 { height: 92%; }
+
+/* ==========================================================================
+   3. WHAT WE ACTUALLY DO
+   ========================================================================== */
+.ll-about-what {
+  background-color: #ffffff;
+}
+
+.ll-about-what__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(20px, 3.5vw, 56px);
+  min-width: 0;
+}
+
+.ll-about-what__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ll-space-sm);
+  min-width: 0;
+}
+
+.ll-about-what__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 1.6vw, 18px);
+}
+
+/* ==========================================================================
+   4. WHAT WE BELIEVE (tinted)
+   ========================================================================== */
+.ll-about-believe {
+  background:
+    radial-gradient(ellipse 45% 70% at 100% 0%, rgba(33, 127, 247, 0.09), transparent 70%),
+    var(--ll-color-brand-primary-subtle);
+}
+
+.ll-about-believe__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+/* ==========================================================================
+   5. WHO IT IS FOR
+   ========================================================================== */
+.ll-about-audience {
+  background-color: var(--ll-color-surface-subtle);
+}
+
+.ll-about-audience__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 1.6vw, 18px);
+}
+
+/* ==========================================================================
+   6. FOUNDERS TEASER
+   ========================================================================== */
+.ll-about-founders {
+  background:
+    radial-gradient(ellipse 40% 80% at 0% 100%, rgba(33, 127, 247, 0.07), transparent 70%),
+    #ffffff;
+  border-bottom: 0;
+}
+
+.ll-about-founders__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(16px, 3vw, 48px);
+  min-width: 0;
+}
+
+.ll-about-founders__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ll-space-sm);
+  min-width: 0;
+}
+
+.ll-about-arrow {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.ll-about-founders__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 1.6vw, 18px);
+}
+
+.ll-about-person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(14px, 1.6vw, 20px);
+  box-sizing: border-box;
+  min-width: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid var(--ll-color-border);
+  border-radius: var(--ll-radius-lg);
+  box-shadow: var(--ll-shadow-md);
+}
+
+.ll-about-person__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  font-size: var(--ll-font-size-base);
+  font-weight: var(--ll-font-weight-extrabold);
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background-color: var(--ll-color-brand-primary-dark);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(21, 102, 214, 0.14);
+}
+
+.ll-about-person__text {
+  min-width: 0;
+}
+
+.ll-about-person__name {
+  margin: 0;
+  font-size: var(--ll-font-size-base);
+  font-weight: var(--ll-font-weight-bold);
+  line-height: var(--ll-line-height-snug);
+  color: var(--ll-color-text-main);
+}
+
+.ll-about-person__role {
+  margin: 2px 0 0;
+  font-size: var(--ll-font-size-sm);
+  color: var(--ll-color-text-muted);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE
+   ========================================================================== */
+@media (min-width: 640px) {
+  .ll-about-what__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ll-about-audience__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ll-about-founders__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .ll-about-believe__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .ll-about-hero__inner {
+    grid-template-columns: 1.05fr 1fr;
+  }
+
+  .ll-collage {
+    margin-inline: 0 auto;
+  }
+
+  .ll-about-what__layout {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .ll-about-audience__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ll-about-founders__layout {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
